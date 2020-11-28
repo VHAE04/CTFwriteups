@@ -1,464 +1,439 @@
-# miniCTF 2020
+# TrainingCTF2020
+Writeup dành cho các challenges trong thời gian Training của Gen II CLB ISP.
+  
+  
+  
+## Overview
+ | Title | Category  | Flag |
+ | ------ | ------ | ------ |
+ | [Sudoku](#1-sudoku) | Programming | `ispclub{5ud0ku_puzzl3_15_n0t_345y}` |
+ | [Super panic](#2-super-panic) | Forensic | `ispclub{h3y_br0_c4lm_d0wn}` |
+ | [pyRev](#3-pyrev) | Programming | `ispclub{5up3r_345Y_cH4ll3ng3}` |
+ | [shiftNbases](#4-shiftnbases) | Crypto | `ispclub{Tat_ca_moi_nguoi_deu_sinh_ra_co_quyen_binh_dang._Tao_hoa_cho_ho_nhung_quyen_khong_ai_co_the_xam_pham_duoc;_trong_nhung_quyen_ay,_co_quyen_duoc_song,_quyen_tu_do_va_quyen_muu_cau_hanh_phuc._Loi_bat_hu_ay_o_trong_ban_Tuyen_ngon_Doc_lap_nam_1776_cua_nuoc_My._Suy_rong_ra,_cau_ay_co_y_nghia_la:_tat_ca_cac_dan_toc_tren_the_gioi_deu_sinh_ra_binh_dang,_dan_toc_nao_cung_co_quyen_song,_quyen_sung_suong_va_quyen_tu_do._Ban_Tuyen_ngon_Nhan_quyen_va_Dan_quyen_cua_Cach_mang_Phap_nam_1791_cung_noi:_Nguoi_ta_sinh_ra_tu_do_va_binh_dang_ve_quyen_loi;_va_phai_luon_luon_duoc_tu_do_va_binh_dang_ve_quyen_loi._Do_la_nhung_le_phai_khong_ai_choi_cai_duoc.}` |
+ | [ascii64+](#5-ascii64+) | Web | `ispclub{hemmeligheder_afsløres_altid}` |
+  
+  
+  
+# 1. Sudoku  
+[Source code](https://github.com/ispclub/generalTraining/blob/main/ctf/sudoku.cpp)
 
-Để chào mừng các tân sinh viên và những người có đam mê và muốn tìm hiểu về Cyber Security, ISP Club chúng mình đã tổ chức cuộc thi thường niên miniCTF và đây là writeup cho miniCTF năm 2020.
-    
-### Firstlooking  
-  
-  
-![miniCTF firstlook](/miniCTF2020/logo.png)  
-  
-  
-  
-### Overview
- | Title | Category | Points | Flag
- | ------ | ------ | ------ | ------ |
- | [World these days](#osint-50-world-these-days) | OSINT | 50 | `ispclub{ISP_ru1n_th3_w0rLd}` |
- | [ISP rules the world](#osint-250-isp-rules-the-world) | OSINT | 250 | `ispclub{b4k4_Ki3nM1ddL3}` |
- | [Teacher Ki3nM1ddL3](#crypto-100-teacher-ki3nm1ddL3) |	Crypto	| 100 | `ispclub{sUch_4_L0n9_w4y}` |
- | [Dancer Chick Chick](#crypto-100-dancer-chick-chick) | Crypto | 100 | `ispclub{dancewithme}` |
- | [ReMo](#crypto-100-remo) | Crypto | 100| `ispclub{r3_m0}` |
- | [Chick Chick wants breakfast!](#crypto-150-chick-chick-wants-breakfast) | Crypto | 150 | `ISPCLUB{YUMMYYUMMY}` |
- | [Forbidden Magic](#crypto-222-forbidden-magic)| Crypto | 222 | `ISPCLUB{THEBESTWIZARD}` |
- | [No magic here](#for-100-no-magic-here) | FOR | 100 | `ispclub{w4Y5_T0_3xpL01t_pN9_f1L35}` | 
- | [QR's Chick Chick](#for-50-qrs-chick-chick) | FOR | 50 | `ispclub{pl4y1n9_w1th_QR_c0d3_15_v3ry_1nt3r35t1n9}` | 
- | [Wanna play Hide and Seek?](#for-150-wanna-play-hide-and-seek) | FOR | 150 | `ispclub{n4hhh_1_g0t_c4tch3D}` | 
- | [winRAR winNER](#misc-150-winrar-winner) | Misc | 150 | `ispclub{welcome_and_have_fun}` | 
- | [Secret Book](#misc-500-secret-book) | Misc | 500 | `ispclub{d0K_s@cK_d3_9141_tR1}` | 
- | [Call me daddy](#re-50-call-me-daddy) | RE | 30 | `ispclub{programmingBasic}` | 
- | [Pascal n Python](#programming-150-pascal-n-python) | Programming | 150 | `ispclub{3asy_r1ght?}` | 
- | [Become Powerful](#web-100-become-powerful) | Web | 100 | `ispclub{j01n_t0_run_th1s_w0rLd}` | 
- | [Menhera](#web-150-menhera) | Web | 150 | `ispclub{v3__v0i__d0i__cua__anh__d1_3m__e111__<333}` | 
- | [2048](#web-200-2048) | Web | 200 | `ispclub{4lw4y5_ch3ck_l0c4l_st0r4g3}` | 
- | [Scroll](#web-300-scroll) | Web | 300 | `ispclub{sh0u1dnt_l34rn_j4v4scr1pt}` | 
- | [md5-1](#web-500-md5-1) | Web | 500 | `	ispclub{G00d_J0b_h4y_l4m_t41_n4ng_tr3!!!!!!!!!__<3}` |  
-   
-   
-   
-# OSINT 50: World these days
-#### Challenge 
-First you have to know about the world these days. Read [this book](/miniCTF2020/writeupfiles/history.txt):  
-  
-#### Solution
-Đề bài yêu cầu chúng ta đọc file history, vậy hãy thử tải về xem chúng ta có gì nào.
-Đây là phần cốt truyện cho minictf và đọc đến cuối ta thấy được flag.<br>
-Flag: `ispclub{ISP_ru1n_th3_w0rLd}`  
-  
-  
-  
-# OSINT 250: ISP rules the world
-#### Challenge
-Ta là Lươn. Ta không đánh giá cao ngươi, tuy vậy ta vẫn sẽ cho ngươi một cơ hội để có được kho báu. Gần đây Ki3nM1ddL3 mới được trải nghiệm cỗ máy thời gian, và hắn rất thích thú với mạng xã hội thời xưa là Facebook, vì vậy hắn đã lập một page cho tổ chức ISP trên đó. Hắn còn đăng bài khiêu khích thế giới rằng hắn nhiều của cải tới mức phát tán lung tung và để luôn 1 flag ở đó. Quay về quá khứ và đào mảnh flag đó lên!  
-  
-#### Solution
-Khi đọc thì ta có thể thấy là đề bài có các từ khóa ***Facebook***, ***page ISP***, nội dung minigame. Flag có thể sẽ liên quan đến một bài đăng nào đó về minigame trên [fanpage của ISP](https://www.facebook.com/ATTT.PTIT). Sau khi tìm kiếm thì mình phát hiện ra bài [Open miniCTF](https://www.facebook.com/ATTT.PTIT/posts/3425688750875051) là có liên quan nhất đến các dữ kiện mà ta đã tìm được, hãy cùng xem xét nó 1 chút.  
-
-![FBpost](/miniCTF2020/writeupfiles/opengamepost.png)  
-
-Có vẻ là chúng ta không thấy điều gì có vẻ khả nghi ở đây cả. Đọc thật kỹ đề bài, ta sẽ thấy đề bài liên tục nhắc đến ***thời gian***, ***flag***. Facebook có 1 tính năng cho phép ta có thể xem được lịch sử đã chỉnh sửa của 1 bài viết, có vẻ flag sẽ được giấu ở đó. Hãy cùng kiểm tra edit history của post này!<br>
-![edit_history](/miniCTF2020/writeupfiles/edithistory.png)  
-
-Quả nhiên flag được cài vào đây.<br>
-Flag: `ispclub{b4k4_Ki3nM1ddL3}`  
-  
-  
-  
-# Crypto 100: Teacher Ki3nM1ddL3
-#### Challenge
-Ki3nM1ddL3 ta thật ra rất thích ra câu đố rồi nhìn bọn điêu dân đăm chiêu mà không thể giải được. Mi đã tìm ra được một vài flag, vì vậy ta thấy ngươi rất thú vị! Hãy thử xem lần này ngươi còn có thể tìm ra được nữa không!  
-Nếu ngươi được thừa hưởng một tí tẹo trí tuệ của ta ngươi sẽ biết máy tính hiểu được ngôn ngữ nào. Ta là một hắc cờ vì vậy ta sẽ luôn bắt đầu bằng nó!  
-
-[file](/miniCTF2020/writeupfiles/bin.txt)  
-  
-#### Solution
-Khi vừa mở tệp bin.txt thì có thể thấy được 1 loạt các ký tự 0 và 1. Đề bài cũng gợi ý đó là **ngôn ngữ máy tính hiểu**. Vậy đây chính là mã binary. Khi thực hiện decode từ bin trở thành ascii thì ta thu được dòng chữ:  
-
+Đầu tiên mình chạy thử code và nhận được output sau:
 ```
-After binary surely have hex 41 66 74 65 72 20 74 68 61 74 20 77 65 20 68 61 76 65 20 62 61 73 65 36 34 20 56 47 68 6c 62 69 42 6f 5a 58 4a 6c 49 48 64 6c 49 47 64 76 49 48 64 70 64 47 67 67 59 6d 46 7a 5a 54 4d 79 49 45 70 61 55 31 68 52 4e 55 4a 42 54 6b 5a 61 55 30 45 79 54 45 39 50 55 56 46 45 51 30 35 61 55 6b 64 52 57 56 52 44 54 6b 4a 58 53 45 55 79 52 45 4e 4f 55 6c 6c 48 56 54 4e 55 52 30 31 4b 57 55 64 46 57 6c 52 50 54 30 4a 5a 52 30 6b 7a 52 46 4e 50 53 6c 5a 49 52 54 52 45 54 30 31 61 57 6b 64 52 4d 30 52 44 54 55 70 57 52 31 55 30 56 45 31 4e 53 6c 68 48 52 54 4e 55 53 55 35 43 56 6b 68 46 4e 46 52 4a 54 6c 4a 52 52 30 30 7a 56 45 31 4f 53 6c 64 48 56 54 52 45 55 30 39 43 56 30 63 30 4e 45 52 54 54 6b 4a 58 52 30 46 61 52 45 6c 50 53 6c 4e 49 51 54 4e 55 51 55 31 43 57 45 64 4a 57 56 52 4e 54 30 70 57 53 45 46 61 56 45 46 4e 51 6c 4a 48 52 56 70 45 55 30 35 53 56 6b 64 4a 57 6b 52 50 54 6b 70 53 52 31 46 61 56 46 46 50 51 6c 5a 48 53 54 4e 55 52 30 39 4b 57 6b 64 52 57 6c 52 44 54 55 4a 52 52 31 6c 5a 52 45 6c 50 53 6c 52 48 51 56 70 45 55 30 31 43 57 67 3d 3d
+	C:\ISP\source-code\TrainingGII>Sudoku.exe
+	ispclub{d0_y0u_l1k3_5ud0ku?}
+	(Y or N)? ====> Answer: N
+	
+	ispclub{y0u_d0_n0t_g3t_th3_fl4g}
+  
+	C:\ISP\source-code\TrainingGII>Sudoku.exe
+	ispclub{d0_y0u_l1k3_5ud0ku?} 
+	(Y or N)? ====> Answer: Y
+	
+	ispclub{l3t'5_try_4_puzzl3!}
+							
+	--------------------------
+	| 7 0 0 | 6 0 0 | 2 0 3 |
+	| 0 2 0 | 8 1 0 | 0 5 0 |
+	| 0 0 5 | 0 9 2 | 0 0 0 |
+	--------------------------
+	| 2 0 0 | 0 7 0 | 5 0 8 |
+	| 3 0 7 | 0 0 9 | 0 2 0 |
+	| 0 9 0 | 0 4 0 | 0 0 7 |
+	--------------------------
+	| 1 0 8 | 0 3 7 | 0 0 2 |
+	| 0 0 0 | 1 0 0 | 8 0 0 |
+	| 6 0 2 | 0 0 0 | 9 3 0 |
+	--------------------------
+	Try again
 ```
-Vậy là sẽ có nhiều mã được sử dụng. Đối với bài này thì một trang [website như thế này](https://kt.gy/tools.html#conv/) rất tiện lợi.  
-Đề bài đã gợi ý đây là đoạn mã hex. Tiếp tục decode từ hex sang ascii:  
+Sau khi chạy cả 2 trường hợp "Y" và "N" mình nhận được tất cả 3 flag giả:  
 ```
-After that we have base64 VGhlbiBoZXJlIHdlIGdvIHdpdGggYmFzZTMyIEpaU1hRNUJBTkZaU0EyTE9PUVFEQ05aUkdRWVRDTkJXSEUyRENOUllHVTNUR01KWUdFWlRPT0JZR0kzRFNPSlZIRTRET01aWkdRM0RDTUpWR1U0VE1NSlhHRTNUSU5CVkhFNFRJTlJRR00zVE1OSldHVTREU09CV0c0NERTTkJXR0FaRElPSlNIQTNUQU1CWEdJWVRNT0pWSEFaVEFNQlJHRVpEU05SVkdJWkRPTkpSR1FaVFFPQlZHSTNUR09KWkdRWlRDTUJRR1lZRElPSlRHQVpEU01CWg==
+  ispclub{d0_y0u_l1k3_5ud0ku?} 
+  ispclub{l3t'5_try_4_puzzl3!}
+  ispclub{y0u_d0_n0t_g3t_th3_fl4g}
 ```
-Tiếp tới là base64:  
+Cùng check qua source code xem ta sẽ thu được gì:
+- Dòng 20: *string sudoku="..."*  có 81 ký tự = 9x9. Có thể suy ra đây là ma trận sudoku.
+- Dòng 37: *sudoku[++c]-97* dùng để chuyển các ký tự từ chữ về số theo mã ASCII.
+- Dòng 42 - 45: Ta thấy string flag4 phụ thuộc vào các string flag1, flag2, flag3 và "sudoku". 
+- Dòng 47: *if (flag4.size()==34) cout << flag4 << endl;*  nếu size flag4 bằng đúng với 34 ( = với size của flag4 dòng 19) thì sẽ in ra flag4. Vậy ta kết luận flag4 là flag của bài.  
+
+Bây giờ ta phải đi giải bài sudoku này, thay các giá trị 0 bằng những số thích hợp. Ta chuyển dãy sudoku ấy về xâu chữ cái với *‘0’ = ’a’, ’1’ = ’b’, ’2’ = ’c’,...* Mình dùng 1 script `python` để làm việc này:  
 ```
-Then here we go with base32 JZSXQ5BANFZSA2LOOQQDCNZRGQYTCNBWHE2DCNRYGU3TGMJYGEZTOOBYGI3DSOJVHE4DOMZZGQ3DCMJVGU4TMMJXGE3TINBVHE4TINRQGM3TMNJWGU4DSOBWG44DSNBWGAZDIOJSHA3TAMBXGIYTMOJVHAZTAMBRGEZDSNRVGIZDONJRGQZTQOBVGI3TGOJZGQZTCMBQGYYDIOJTGAZDSMBZ
+C:\ISP\source-code\TrainingGII>python
+Python 3.7.7
+Type "help", "copyright", "credits" or "license" for more information.
+>>> sudoku="haagaacadacaibaafaaafajcaaacaaahafaidahaajacaajaaeaaahbaiadhaacaaabaaiaagacaaajda"    <-- input string
+>>> for i in sudoku:
+...     print(ord(i)-97,end='')
+...
+700600203020810050005092000200070508307009020090040007108037002000100800602000930    <-- output string
+>>>
+``` 
+Sau đó các bạn có thể tìm tool hoặc giải tay để luyện thêm trí não, còn ở đây mình tìm thấy 1 tool giúp giải sudoku khá tiện và mình đã chỉnh sửa lại để phù hợp giải chall này:  
+[source code](https://pastebin.com/vmYLSBNP)  
 ```
-Base32:  
+C:\ISP\source-code\TrainingGII\>python Sudoku-solver.py
+hbjgfecidecgibdhfjidfhjcebgcgedhbfjidihfgjbcefjbceidghbfijdhgecjedbcgihfghceifjdb   <-- output string
+C:\ISP\source-code\TrainingGII\>
 ```
-Next is int 171411469416857318137882699598739461155961717445994603765658986789460249287007216958300112965227514388527399431006049302909
+Sau đó thay chuỗi vừa tìm được vào source code challenge ban đầu và chạy lại:  
 ```
-Tiếp tới là mã int:  
+	C:\ISP\source-code\TrainingGII>Sudoku.exe
+	ispclub{d0_y0u_l1k3_5ud0ku?}
+	(Y or N)? ====> Answer: Y
+	
+	ispclub{l3t'5_try_4_puzzl3!}
+	
+	--------------------------
+	| 7 1 9 | 6 5 4 | 2 8 3 |
+	| 4 2 6 | 8 1 3 | 7 5 9 |
+	| 8 3 5 | 7 9 2 | 4 1 6 |
+	--------------------------
+	| 2 6 4 | 3 7 1 | 5 9 8 |
+	| 3 8 7 | 5 6 9 | 1 2 4 |
+	| 5 9 1 | 2 4 8 | 3 6 7 |
+	--------------------------
+	| 1 5 8 | 9 3 7 | 6 4 2 |
+	| 9 4 3 | 1 2 6 | 8 7 5 |
+	| 6 7 2 | 4 8 5 | 9 3 1 |
+	--------------------------
+	ispclub{5ud0ku_puzzl3_15_n0t_345y}
 ```
-Bases are fun. Your prize: ispclub{sUch_4_L0n9_w4y}
+Flag: `ispclub{5ud0ku_puzzl3_15_n0t_345y}`  
+# 2. Super panic
+[Super-panic](https://github.com/ispclub/generalTraining/blob/main/ctf/panic.jpg)  
+Trước tiên mình sẽ check file bằng tool [stegsolve](http://www.caesum.com/handbook/Stegsolve.jar) và mình đã tìm thấy 1 QR code:
+![foundQR](https://drive.google.com/uc?export=view&id=1KY5i--RmZZlEoJoHzS0GDYVuiFrFrOFK)  
+Sau khi quét QR mình tìm được `ispclub{h3y_br0_` điều này có nghĩa là vẫn còn 1 nửa flag nữa còn thiếu. Mình đã quyết định check ảnh bằng HxD.  
+Phần mở đầu của file khá bình thường khi mà mình không thấy có điểm gì kì lạ:
 ```
-Phew. Flag: `ispclub{sUch_4_L0n9_w4y}`  
-  
-  
-  
-# Crypto 100: Dancer Chick Chick
-#### Challenge 
-Hắc cờ Chick Chick đã bị bắt!!!! Nhưng nó đang nhảy múa??? Phải chăng đó là một loại mật mã???!<br>[Dancing man](/miniCTF2020/writeupfiles/Dancing_man_cipher.png)  
-  
-#### Solution
-Sau khi tải được tấm hình về ta có thể nhận định luôn đây là flag đã được mã hóa.
-Nếu như tinh ý thì bạn có thể nhận ra ngay lập tức đây là loại mã Dancing man được dùng trong bộ truyện Sherlock Home nổi tiếng và có thể dễ dàng giải được câu đố này. Mình đã sử dụng [website](https://www.dcode.fr/dancing-men-cipher) để decode.  
-
-Flag: `ispclub{dancewithme}`  
-  
-  
-  
-# Crypto 100: ReMo
-#### Challenge
-Đừng tưởng xâm nhập máy tính của  Chick Chick là dễ :)  
-
-`} −−−−− −− ••−−•− •••−− •−• { −••• ••− •−•• −•−• •−−• ••• ••`  
-  
-#### Solution
-Đây là một đoạn mã morse. Ta có thể decode nó bằng các [website decode online](https://kt.gy/tools.html#conv/)  
-Dịch đoạn mã morse này ra ta được : `}0M_3R{BULCPSI`. Chuỗi này đang bị ngược so với form flag chuẩn. Thực hiện đảo ngược lại là ta sẽ có được flag.  
-
-Flag: `ISPCLUB{R3_M0}`  
-  
-  
-  
-# Crypto 150: Chick Chick wants breakfast!
-#### Challenge
-Sáng nay Chick Chick bị thủ lĩnh Ki3nM1ddL3 phạt vì lỡ để hắc cờ xâm nhập máy tính. Nó quyết định sẽ nói bí mật của thủ lĩnh cho người nào mang cho nó đồ ăn sáng. Nhớ nhé, nó chỉ ăn thịt xông khói thôi!!!.  
-
-Mau giúp Chick Chick đi!!!!! (｡•́︿•̀｡)  
-
-`abaaa baaab abbba aaaba ababa baabb aaaab babba baabb ababb ababb babba babba baabb ababb ababb babba`  
-  
-#### Solution
-Đề bài cho một đoạn mã gì đó ta không hiểu và liên tục nhắc đi nhắc lại từ khóa **thịt xông khói**. Search google thì đúng là có tồn tại loại cipher tên là **Bacon cipher**. [Decode](https://www.dcode.fr/bacon-cipher) đoạn mã trên theo Bacon cipher sẽ ra được flag.  
-
-Flag: `ISPCLUB{YUMMYYUMMY}`  
-  
-  
-  
-# Crypto 222: Forbidden Magic
-#### Challenge
-H3nlor đang thực hiện ma pháp tối thượng nhằm tước đoạt trí thông minh của các flag hunter. Nhưng vì đây là 1 cấm thuật cổ xưa nên hắn cần 6 ngày để có thể thực hiện được, trong thời gian đó hãy giải mã bí ẩn của phép thuật này và ngăn chặn H3nlor trước khi quá muộn!  
-
-File: [magic_circle](/miniCTF2020/writeupfiles/Magic_circle.png) [spell](/miniCTF2020/writeupfiles/SPELL.png)  
-  
-  
-  
-#### Solution
-Nếu như nhận thấy được rằng hình vẽ này được vẽ 1 cách có quy luật thì bài này không phải là 1 bài khó 1 chút nào cả.
-Trong mỗi các ô tròn nhỏ đều chứa 3 ký tự và riêng ô cuối cùng chứa 2 ký tự (do trong bảng chữ cái tiếng anh chỉ có 26 ký tự) và trên SPELL.png cũng có rất nhiều các gạch ngang, dọc và chéo. Điểm chung của chúng là đều có 3 gạch và chỉ duy nhất có 1 ký tự là có 2 gạch, đối chiếu lên hình tròn lớn, dễ thấy sự liên hệ của 2 hình này với nhau, gạch dài hơn sẽ biểu diễn cho cả vị trí của ô và ký tự mà hình đó đang biểu diễn, từ đó suy ra được toàn bộ bảng chữ cái và dễ dàng decode, có được flag.  
-
-Bảng chữ cái:  
-
-![CharacterSystem](/miniCTF2020/writeupfiles/SOLVE-EZ.png)  
-
-Flag: `ISPCLUB{THEBESTWIZARD}`  
-  
-  
-  
-# FOR 100: No magic here
-#### Challenge
-Gần đây H3nl0r bắt đầu thích thú nghiên cứu đống ma thuật vô dụng và bắt đầu làm mất flag của ta. Thật tức giận. Nhưng không sao, ta đã có biện pháp bảo vệ chúng.  
-
-[file](/miniCTF2020/writeupfiles/sthcrypty.png)  
-  
-#### Solution
-Sau khi tải file sthcrypty.png và mở lên ta thấy ngay nó được mã hóa tương tự như bài [Forbidden Magic](#crypto-222-forbidden-magic). Thử decode xem có ra flag được không và dịch ra ta có dòng chữ `WRONGDIRECTION`.  
-
-Submit thử với form `ISPCLUB{ANSWER}` thì cho ra kết quả là **incorrect**. Chú ý đến category của bài, [Forbidden Magic](#crypto-222-forbidden-magic) là **Crypto** và [No magic here](#for-100-no-magic-here) là **Forensic**. Hãy dùng cách làm của **Forensic** để xử lý bài này.  
-Việc đầu tiên khi có một file .png hẳn là xem hex xem file này liệu có ẩn giấu gì không. Sử dụng tool **HxD** để xem và ở ngay cuối file ta thấy flag.  
-
-![hex](/miniCTF2020/writeupfiles/hexpng.png)  
-  
-Flag: `ispclub{w4Y5_T0_3xpL01t_pN9_f1L35}`  
-  
-  
-  
-
-# FOR 50: QR's Chick Chick
-#### Challenge
-Hắc cờ Chick Chick khiêu khích các người bằng một mã QR. Tưởng quét một phát là ra à? Mơ đi nhé !!!  
-[QR](https://mega.nz/file/QkZSRJrB#tfTZdOaqB4WcxpfVHFXzCiGTv2ASihOhzTzRAncJl2w)  
-  
-#### Solution
-Khi bấm vào ta sẽ được forward tới trang download mega chứa 1 ảnh QR .png  
-  
-![QR1](/miniCTF2020/writeupfiles/qrchickchick1.png)
-Để quét QR, chúng ta có thể dùng smartphone, hoặc dùng các trang web online. Mình đã decode QR này với website [zxing](https://zxing.org/w/decode.jspx).
-Giải mã QR này ra một link mega nữa.
-Lặp lại như thế vài lần (5 lần) thì đã nhận được flag:  
-  
-![QRflag](/miniCTF2020/writeupfiles/qrflag.png)  
-  
-  
-Flag: `ispclub{pl4y1n9_w1th_QR_c0d3_15_v3ry_1nt3r35t1n9}`  
-  
-  
-  
-# FOR 150: Wanna play Hide and Seek?
-#### Challenge
-Hôm nay tên ChickChick lại quỵt tiền ăn xiên bẩn của ta. Khi ta đến đòi nợ, hắn vội vã trốn đi và để rơi một mảnh flag. Nó ở đâu đó trong này, hãy nhân cơ hội này chiếm lấy nó, ta muốn thấy ChickChick bị phạt lắm rồi!  
-  
-[file .rar](/miniCTF2020/writeupfiles/map.rar)  
-  
-#### Solution
-Bài này khi giải nén tệp map.rar ta được một list các folder và file nhỏ. Flag là một chuỗi ký tự vậy nên ta có thể thử dùng chức năng Search ở File Explorer để tìm toàn bộ file .txt `*.txt` cũng sẽ ra một vài file .txt và mở lần lượt sẽ thấy được flag.  
-Đối với bài này thì phương pháp làm tay là 1 phương pháp không hiệu quả nếu phải tìm với số lượng lớn. Chúng ta sẽ dùng **CLI** (Command Line Interface) với các câu lệnh `findstr` hoặc `grep`. Về cơ bản thì mục đích sử dụng của 2 câu lệnh này là như nhau, dùng để tìm kiếm thông tin bên trong 1 file.  
-Đầu tiên ta sẽ mở CLI tại thư mục cần tìm kiếm (cmd đối với windows và Terminal đối với Linux) sau đó dùng 1 trong 2 câu lệnh để tìm kiếm.
-- `findstr` đối với Windows:  
-
-![cmdmap](/miniCTF2020/writeupfiles/cmdmap.png)  
-
-- `grep` đối với Linux:  
-
-![termap](/miniCTF2020/writeupfiles/terminalmap.png)  
-  
-  
-Flag: `ispclub{n4hhh_1_g0t_c4tch3D}`  
-  
-  
-  
-# Misc 150: winRAR winNER
-#### Challenge
-Hừ. Flag của ta đang mất dần và người yêu ta đang không vui lắm. Lần này ta đã giấu khá kỹ, ngươi sẽ không tìm được đâu.  
-
-[Challenge](/miniCTF2020/writeupfiles/chall.txt)  
-  
-#### Solution
-Chúng ta có thể thấy đề bài đã cho chúng ta 1 file chall.txt và ở trong có 1 đường link drive. Khi truy cập vào ta được dẫn đến 1 thư mục chứa 1 tệp tên là **chall.zip** và 1 tệp **pass.txt**. Sau khi mình tải cả 2 file về và giải nén **chall.zip** thì thấy file yêu cầu có mật khẩu để giải nén và nó nằm trong file **pass.txt**. Sau khi nhập pass mình đã giải nén được thành công, bên trong tệp zip lại có thêm 2 file nữa:  
-
-![liar](/miniCTF2020/writeupfiles/fakeflag.png)  
-
-Mình đã ngay lập tức mở file *flag-in-here.txt* và đây là những gì mình nhận được:
+89 50 4E 47 0D 0A 1A 0A | 00 00 00 0D 49 48 44 52
+         ^                         ^
+   PNG signature               IHDR chunk
 ```
-https://drive.google.com/drive/folders/1I2HcFsJzj9BUG0tp8NkRR6JMFpq-NGGZ?usp=sharing
+Mọi việc kiểm tra các chunk đều bình thường cho đến khi mình check IEND chunk:
 ```
-Và đời không như là mơ :v  
-Tiếp tục truy cập thì chúng ta nhận được thêm **hint.txt** và 1 tệp **chall.zip** nữa. Sau khi tải về và mở file **hint.txt** thì đây là những gì mình nhận được:
-```
-Try to extract that or just open it, you'll see something strange, gud luk
-It doesn't look like what u see.
-can u change that to zip file?
-I think u should search gg for "filename extension" 
-```
-Mình đã thử làm theo hint và giải nén file nhưng **chall2** lại yêu cầu pass để có thể mở khóa, mình đã thử lại pass đầu tiên nhưng có vẻ là không được. Thử đến ý tiếp theo của hint nào. Không cho giải nén thì ta cứ mở:  
-
-![chall2](/miniCTF2020/writeupfiles/chall2.png)  
-
-Cái ảnh kia mình đã thử mở và không được, nên mình đã thử mở file zip và thật bất ngờ khi nó không cần pass để mở.
-Đây là những gì mình nhận được khi mở file *NOT-important.txt*:
-```
-change this from hex to ascii to get extract password(use your brain not your hand :> ): 0x73 0x68 0x69 0x6e 0x72 0x61 0x5f 0x74 0x65 0x6e 0x73 0x65 0x69
-NOT password(don't notice the picture):
-•−−−− ••−−•− •••• •−−−− −•• •••−− −•• ••−−•− ••• −−−−− −− •••−− − •••• •−−−− −• −−−−•
-Don't do that, I swear to you that's NOT the password :<
-and I do NOT know about something like M0rse. Truth me :<
-I don't hide anything...
+49 45 4E 44 AE 42 60 82 | 00 00 00 9D FF F3 08 2A 82 A0 08 2A
+         ^                                 ^
+     IEND chunk                  Đoạn hex phía sau IEND chunk
 ```  
-
-Okay, ngay dòng đầu tiên ta đã có được password giải nén nhưng mà yêu cầu phải đổi nó từ cơ số 16 về ascii để có pass.
-Sau khi [decode](https://kt.gy/tools.html#conv/) ta có được pass giải nén: `shinra_tensei`
-Đã giải nén thành công và nhận được bức ảnh:  
-  
-![shocked](/miniCTF2020/writeupfiles/I_DO_NOT_HIDE_ANYTHING.jpeg)  
-
-Okay got stuck again. Quay lại nghiền ngẫm file **hint.txt** tiếp và nhận ra có điều gì đó về *file extension*. Quăng vào xem hex và ta nhận ra nó là một file .zip. Đổi định dạng của nó thành file .zip và giải nén bằng mật khẩu là phần mã Morse trong **NOT-important.txt**. Sau khi decode ta có pass: `1_H1D3D_S0M3TH1N9`.  
-Và sau khi giải nén thành công ta có được thư mục **secrets**, “tận hưởng” toàn bộ ablum này xong thì ở thư mục cuối ta có được flag:  
-![challflag](/miniCTF2020/writeupfiles/ISPCLUB.png)  
-
-Flag: `ispclub{welcome_and_have_fun}`  
-  
-  
-  
-# Misc 500: Secret Book
-#### Challenge
-Là một thủ lĩnh của tổ chức toàn cầu như ta, tất nhiên ta có thói quen đọc sách để bồi dưỡng tri thức. Ngươi nên học tập ta đi.  
-
-[BOOK](/miniCTF2020/book.png)  
-
-#### Solution
-Đề bài đã cho ta 1 bức ảnh khi mở nó ra ta có được một thứ có vẻ là 1 đường link đã được rút gọn, truy cập vào thì đó là một website có-vẻ-không-có-gì-nhiều :v  
-OKAY :| bị lừa rồi. Có vẻ như đây là 1 đường link nhưng mà đã bị thay đổi gì đó và thứ đáng nghi nhất là phần WH, chỉ có thể là Width và Height của 1 bức ảnh, sau đó mình đã kiểm tra thông số của bức ảnh (chuột phải -> Properties -> Detail), nhìn thấy *Dimensions* của ảnh là `728x90`.  
-Thay 728 vào W, 90 vào H ta nhận được [đường link mới](https://bit.ly/book_72890) và nhận được một quyển sách .pdf.  
-Sau khi lật được vài trang thì có vẻ đây là một quyển sách bình thường trừ số trang không theo quy luật.  
-Liệt kê chuỗi số trang ra thì ta có một chuỗi trông có vẻ là có những ký tự chữ cái trong cả hệ decimal, octal theo thứ tự so le:
-```sh
-105 163 112 143 108 165 98 173 100 60 75 137 115 100 99 113 95 144 51 137 57 61 52 61 95 164 82 61 125
+Một bức ảnh png sẽ kết thúc ở IEND và những thứ sau đó sẽ không được hiện thị nhưng ở bức ảnh này vẫn còn thêm 1 đoạn hex khá dài ở phía sau nữa nên mình liền nghĩ tới là chèn ảnh vào ảnh và mình đã check thử xem có tìm thấy file signature không. Và kết quả là không tìm ra gì cả. Cho đến khi mình check từ phía dưới lên:  
+`10 00 64 94 64 A4 01 00 0E FF 8D FF` mình nhận thấy có điểm gì đó lạ ở đây và mình đã đúng `FF D8 FF E0 00 10 4A 46 49 46 00 01 <-- JPG signature` vậy là đây là mã hex của 1 bức ảnh bị đảo sau đó chèn vào.  
+Vậy thì đảo nó lại để lấy ảnh thôi! 
+Ở đây mình đã copy toàn bộ mã hex của cả 2 bức ảnh để đảo, ở đây mình tạm gọi phần trên là pic1 phần dưới là pic2 và nó bị đảo nên sẽ là pic2rev-ed.  
+Vậy ta sẽ có như sau:
 ```
-Chuyển về ascii và ta sẽ có được flag.  
-Flag: `ispclub{d0K_s@cK_d3_9141_tR1}`  
+    - Ảnh gốc         sau khi đảo toàn bộ hex       Ảnh sau đảo
+    pic1-pic2rev                -->                pic2-pic1rev
+```
+Vì toàn bộ sau khi đảo thì dữ liệu của pic2 sẽ được hiển thị và pic1 sẽ bị ngắt bởi end của pic2 giống như ban đầu khi ta chỉ thấy pic1 vậy.  
+*Ảnh jpg có kết thúc là FF D9 vậy nên không cần lo chuyện sẽ có lỗi khi reverse toàn bộ bức ảnh*  
+Mình đã copy toàn bộ mã hex của ảnh và dùng tool [Online hex tools](https://onlinehextools.com/reverse-hex-digits) để reverse toàn bộ mã hex sau đó copy trở lại HxD và save thành file có đuôi JPG:  
+![flag2](https://drive.google.com/uc?export=view&id=1YjDus1-M_FF-nWt1gARIjIhlZpGbUe4k)  
+Vậy là đã tìm thấy phần còn lại của flag: `c4lm_d0wn}`  
+Flag: `ispclub{h3y_br0_c4lm_d0wn}`  
+# 3. pyRev
+[Source code]()  
+Mới đầu nhìn vào ta có thẻ thấy được bài này sủ dụng rất nhiều hàm. Vậy nên mình đã liệt kê các hàm ra và bắt đầu phân tích:
+```
+	def ispclub(cre):
+	def prompt():
+	def obfuscate(bys):
+	def crypt(sor):
+	def grant():
+	def punish():
+	def main():
+```
+Ta có thể thấy `main()` là hàm được gọi đầu tiên để thực thi. Hãy cùng phân tích `main()`:  
+```
+def main():
+  sik1 = prompt()
+  sik = obfuscate(sik1)
+  sik = crypt(sik)
+  sik = ispclub(sik)
+  if (sik=="61ch4ll691ch4l..."):
+    grant()
+  else:
+    punish()
+```
+Mình đã tạm thời bỏ câu lệnh `if` và chạy thử in ra ouput thì nhận được 1 string có cấu trúc khá giống với string được đem so sánh trong câu lệnh `if` vậy nên để có thể lấy được flag thì nhiệm vụ chính là reverse dòng string được đem ra để so sánh trong câu lệnh `if`.
+Khi xem xét thì ta có thể thấy:
+- `sik1 = prompt()`: Gọi đến 1 hàm input
+- `obfuscate() | crypt() | ispclub()`: các hàm để encode string được input
+- `if (sik=="...")`: So sánh string sau khi encode với 1 string khác, đúng -> `grant()`, sai -> `punish()`
+Okay, giờ đến phân tích sâu vào nào.  
+`grant()` và `punish()` là 2 hàm xuất thông báo khi kiểm tra điều kiện và cái ta muốn là hàm `grant()` được thực thi, đồng nghĩa với điều kiện kiểm tra trong `ìf` phải .  
   
+Hai hàm trên khá đơn giản nên mình sẽ không phân tích nhiều và tập trung vào các hàm dùng để encode. Và mình đã tách từng hàm và chạy riêng để phân tích vì các hàm này không liên quan đến nhau.  
   
+Đầu tiên là `ispclub()`  
+```
+C:\ISP\source-code\TrainingGII>python
+Python 3.7.7
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def ispclub(cre):				<-- input "ABCD"
+...     sto=[]					
+...     gre=""      
+...     for i in cre:				<-- với vòng lặp đầu
+...             sto.append(i+str(len(i)))	<-- sto = ['A1']
+...             sto.append("ch4ll"+i)		<-- sto = ['A1', 'ch4llA']
+...     for i in sto:				<-- sto = ['A1', 'ch4llA', 'B1', 'ch4llB', 'C1', 'ch4llC', 'D1', 'ch4llD']
+...             gre+=i
+...     return gre
+...
+>>> ispclub("ABCD")				<-- input
+'A1ch4llAB1ch4llBC1ch4llCD1ch4llD'		<-- output
+>>>
+```
+Ta có thể dễ dàng thấy được các ký tự mà ta cần sẽ các nhau 1 khoảng bằng 8. Từ đó mình có đoạn code sau:
+```
+>>> def solve_ispclub(indata):
+...     return indata[::8]			<-- string[start:end:step]
+...
+>>>
+```
+Kết quả chạy hàm:
+```
+>>> solve_ispclub('A1ch4llAB1ch4llBC1ch4llCD1ch4llD') 	<-- input
+'ABCD'							<-- output
+>>>
+```  
+Tiếp đến là hàm `crypt()`
   
+```
+>>> def crypt(sor):				<-- input "ABCD"
+...     sro=[]					<-- sro = []
+...     fusc="696"
+...     for i in range(len(sor)):
+...             sro.append(sor[i]+str(i))	<-- sro = ['A0', 'B1', 'C2', 'D3']
+...     sro.reverse()				<-- sro = ['D3', 'C2', 'B1', 'A0']
+...     for i in sro:
+...             fusc+=i
+...     return fusc				<-- fusc = "696" + "D3C2B1A0"
+...
+>>> crypt("ABCD")				<-- input "ABCD"
+'696D3C2B1A0' 					<-- output string
+>>>
+```
+Đầu tiên cần loại bỏ `696` ở đầu string, tiếp đó là đảo lại và lấy các ký tự ở vị trí thứ 2. Từ đó sẽ có:
+```
+>>> def solve_crypt(indata):	# indata = "696D3C2B1A0"
+... 	out=""
+... 	indata = indata[3:]	# indata = "D3C2B1A0"
+... 	indata = indata[::-1]	# indata = "0A1B2C3D"
+... 	cnt=1			# tạo biến đếm
+... 	while (len(indata)): 	# Lặp lần đầu
+... 		out+=indata[1]	# lấy ký tự thứ 2(indata[1]="A")
+... 		indat=indata[len(str(cnt))+1:] 	<-- indata = "1B2C3D"
+... 		cnt+=1
+... 	return out
+...
+>>>
+```
+Kết quả chạy hàm:
+```
+>>> solve_crypt('696D3C2B1A0') 	<-- input
+'ABCD'				<-- output
+```
+Lý do cần thêm biến `cnt` là vì `crypt()` chạy vòng lặp từ `0` đến `len(sor)` nếu lặp lớn hơn 10 thì `len(sor)` sẽ lớn hơn 1.  
   
-# RE 50: Call me daddy
-#### Challenge
-Trong quá trình hiện thực hoá giấc mơ trở thành hacker thành đạt kiêm bố đường, H3nl0r gặp vấn đề với việc tốt nghiệp cấp 3 khi gặp phải kẻ thù không đội trời chung là môn tin học 11. Hãy tìm hiểu xem H3nl0r có đạt được mơ ước của mình không, hay mãi vẫn không được lên lớp và phải ở nhà ăn bám!  
-[file](/miniCTF2020/writeupfiles/boduong.pas)  
-  
-  
-#### Solution
-Đề bài cho ta 1 file .pas, vậy đây là file code của pascal. Hãy xem qua thử nào ta có thể thấy file code được chia thành các phần:  
-Phần khai báo biến:  
+Tiếp đến là `obfuscate()`:  
+```
+>>> import base64 as isp 				# import base64 và rename thành isp
+>>> def obfuscate(bys):
+...     fusc = isp.b64encode(bys)			# fusc = b'QUJDRA=='
+...     fusc += b"ispclub6910832"			# fusc = b'QUJDRA==ispclub6910832'
+...     fusc = str(fusc)				# <class 'bytes'> đổi thành <class 'str'>
+...     fusc = fusc[2:len(fusc)-1]			# loại bỏ prefix, fusc = "QUJDRA==ispclub6910832"
+...     refus = []
+...     for i in fusc:
+...             refus.append(str(i))			
+...             fusc="imustDOTHISCHALL011014"		# lưu giá trị vào refus, fusc="imustDOTHISCHALL011014"
+...     for i in refus:
+...             fusc+=i 				# fusc = "imustDOTHISCHALL011014" + "QUJDRA==ispclub6910832"
+...     return fusc
+...
+>>> obfuscate(b'ABCD')				<-- input
+'imustDOTHISCHALL011014QUJDRA==ispclub6910832'	<-- output
+>>>
+```
+Vậy hàm `obfuscate()` chỉ đơn giản là encode base64 và thêm 2 chuỗi vào đầu và cuối. Từ đó hàm solve sẽ là:
+```
+>>> def solve_obfuscate(indata):
+...     indata = indata.replace("imustDOTHISCHALL011014",'') 	# indata = "QUJDRA==ispclub6910832"
+...     indata = indata.replace("ispclub6910832",'')		# indata = "QUJDRA=="
+...     indata = indata.encode('utf-8')			        # indata = b'QUJDRA=='
+...     return str(base64.b64decode(indata))			# decode indata và return giá trị 
+...
+>>>
+```
+Kết quả chạy hàm:
+```
+>>> solve_obfuscate('imustDOTHISCHALL011014QUJDRA==ispclub6910832')  <-- input 
+"b'ABCD'"							     <-- output
+>>>
+```
+Bước cuối cùng là ghép các hàm đã tạo ra để tạo file [solve](https://pastebin.com/UFSHV8bd) và chạy với input là string bên trong câu lệnh `ìf`.
 
-![var](/miniCTF2020/writeupfiles/var.png)  
-  
-Phần hàm con:
-  
-![func](/miniCTF2020/writeupfiles/func.png)  
-  
-Và phần hàm main:  
-  
-![main](/miniCTF2020/writeupfiles/main.png)  
-  
-  
-Ở phần khai báo biến ta thấy có 1 biến “name” kiểu string, 1 biến “daddy” kiểu string có giá trị là ‘ISP’ và 1 biến “flag” kiểu string có giá trị là `hrqbmtczqsnfs`llhofC`rhb|`.  
-Ở phần chương trình con ta có thể thấy đó là hàm này dùng để xử lý flag đã được khai báo ở trên kia thành flag mà chúng ta có thể submit được.  
-Đọc trong main thì ta thấy có câu lệnh so sánh, nếu như input của người dùng nhập vào bằng với giá trị của biến daddy thì sẽ gọi hàm con printFlag.  
-Vậy thì dễ rồi, chỉ cần chạy rồi nhập input = ‘ISP’ là có thể ra được flag.  
+*Các bạn cũng có thể tham khảo file [solve](https://pastebin.com/ncgGjGqz) này*
+```
+C:\ISP\source-code\TrainingGII>python solve.py
+b'ispclub{5up3r_345Y_cH4ll3ng3}'
+
+C:\ISP\source-code\TrainingGII>
+```
+Flag: `ispclub{5up3r_345Y_cH4ll3ng3}`  
   
   
-![pasrun](/miniCTF2020/writeupfiles/pasrun.png)  
+# 4. ShiftNbases  
   
   
-Flag: `ispclub{programmingBasic}`  
+### Challenge
+Cháu ngoan Bác Hồ thì phải luôn ghi nhớ 19051890!  
+[ciphertext](https://github.com/ispclub/generalTraining/blob/main/ctf/shiftNbases.txt)
   
+### Writeup  
   
+Bài này mình sử dụng `python3.7` để viết script decode.  
   
-# Programming 150: Pascal n Python
-#### Challenge
-Ki3nM1ddL3 mới tập lập trình Python và hắn nhận ra Python cũng có vài điểm chung với Pascal. Xem xem ai học Python nhanh hơn nhé.  
+Trong file được cho chứa một chuỗi số khá dài, nhìn qua thì có cả mã hex. Phán đoán bước đầu, đây sẽ là text sau khi đã encode bằng các base cơ bản.  
+Trong các base cơ bản, có các khoảng giá trị đặc biệt cần chú ý như sau:  
+| ASCII | OCT | DEC | HEX |
+|------|------|------|------|
+| All | `1o` - `377o` | `1d` - `255d` | `1h` - `ffh` |
+| `A` - `z` | `101o` - `172o` | `65d` - `122d` | `41h` - `7ah` |
+| `0` - `9` | `60o` - `71o` | `48d` - `57d` | `30h` - `39h` |  
   
-[c0d3.py](/miniCTF2020/writeupfiles/c0d3.py)  
+Sau khi xem xét kỹ lưỡng, ta nhận ra đoạn text có vẻ được mã hóa theo quy luật `oct - dec - hex - dec`. Bởi, các số thứ 0, 4, 8,... thường có giá trị lớn nhất, trùng với khoảng giá trị các chữ cái trong hệ `oct`, số thứ 1, 3, 5, 7, 9,.. thường trùng với khoảng giá trị các chữ cái trong hệ `dec`, và các số thứ 2, 6, 10,... thường khá nhỏ so với các giá trị khác, và trùng với khoảng giá trị các chữ cái trong hệ `hex`.  
   
-#### Solution
-Bài này chỉ đơn giản là các ký tự trong flag đã được cộng thêm 160 và mình đã có chuỗi sau khi các ký tự được cộng với 160. Chỉ cần thực hiện lấy giá trị mỗi ký tự trừ đi 160 rồi in ra là ta sẽ có được flag rồi.  
+Decode thử xem ra gì?  
   
-Script:  
 ```python
-out = "265 275 272 259 268 277 258 283 211 257 275 281 255 274 209 263 264 276 223 285"
-arr = out.split()
-flag = ""
-for i in arr:
-	flag += chr(int(i)-160)
-print (flag)
+f = open("shiftNbases.txt", "r")
+cipher = f.read().split()
+f.close()
+
+base = [8, 10, 16, 10]
+text = ""
+for i in range(0, len(cipher)):
+    text += chr(int(cipher[i], base[i % 4]))
+    
+print(text)
 ```  
   
-Flag: `ispclub{3asy_r1ght?}`  
+Và ta được output trông như thế này:  
   
+```
+ISP_IN_YOUR_AREAh|phk}Y{SjtdbiVmnr_sf}fi^mez^{ISP_IN_YOUR_AREA`nghrf^kf_p~yjmgYimq_i`v^.^]atISP_IN_YOUR_AREA^pfa^lht^pf_mqusfghuxnndjpfnfhISP_IN_YOUR_AREAan^kf_sqedwid_oqar^llobD_yqwegISP_IN_YOUR_AREA^whzmoVqtes^ip,^lodp}pemhdznkISP_IN_YOUR_AREAVsnwg1^ylydw_ytg[o^adp}pemhmzISP_IN_YOUR_AREAtgZathhfmpVpg~c3^Tfi^kay^pl_`ISP_IN_YOUR_AREA_t^|iomp_g`vVTtes^v^omhDtbgcaISP_IN_YOUR_AREAohnflg(76?_htiVntxcdL%_R~ydqwISP_IN_YOUR_AREAeg^{a1^kXu^jydbwVy^wgmhiVl`C_yISP_IN_YOUR_AREA`|Vc`hcfbg[amhttbgkrdw_ygmVghxISP_IN_YOUR_AREAidcml_rrnm^zX_arnm^lXnf5_i`vVtISP_IN_YOUR_AREAnl_s`wVctwgdbwVqtes^{fnf5_vtISP_IN_YOUR_AREA\n^|usfgjunwgduiVqtes^|l_cx.dISP_IN_YOUR_AREAAie_S~yjmgegnw_Sgie_p~yjmgma^MISP_IN_YOUR_AREAas^ylydw_htiVC`lhdlieg^YhfogeaISP_IN_YOUR_AREAlh1<89Vctwgdmw`:^WgznqVt`hsnmpISP_IN_YOUR_AREAVr`htz^lf_uj_ghv__cjnl^~\_p~yjISP_IN_YOUR_AREAmgcohD_{`ggh`r_qtwe_k~os^llobhISP_IN_YOUR_AREAtz^lf_uj_ghv__cjnl^~\_p~yjmgcoISP_IN_YOUR_AREAh7_Ingca^whzmoVldhpm`qVkgxnl^iISP_IN_YOUR_AREA`_bqon^kXi^mutb6t
+```  
   
+Một chuỗi text dài các ký tự kỳ quặc và chèn thêm rất nhiều chuỗi `ISP_IN_YOUR_AREA`. Hẳn là chuỗi này chỉ có tác dụng obfuscate đoạn cipher thôi. Bỏ nó đi:  
   
-# Web 100: Become Powerful
-#### Challenge
-Gần đây tên đầu sỏ lại âm mưu truyền bá giáo phái của hắn lớn mạnh hơn nữa, vì thế Ki3nM1ddL3 đã bắt Lươn phải làm ra cái web này. Nhưng hắn đã tin lầm người. Lươn đã biến chỗ này thành động flag-hunter. Hắn còn tiện thể nhét luôn flag vào. Hãy tìm nó!  
+```python
+text = text.replace('ISP_IN_YOUR_AREA', '')
+```  
   
-#### Solution
-Bài này không có file đính kèm và dữ kiện duy nhất của ta là phần cốt truyện kia. Có thể thấy là cốt truyện đã đề cập đến việc Lươn đã nhét flag vào trang web này. Thử f12 xem source code xem sao!  
-Sau 1 hồi mình đã tìm thấy nó ngay trong trang About Us:  
-![about](/miniCTF2020/writeupfiles/aboutus.png)  
+Vấn đề còn lại là decrypt đoạn text còn lại sau khi đã deobfuscate. Tên đề bài là `shift and bases`, bước đầu đã là trộn các base, vậy bước này là một dạng của `shifting cipher`?  
   
-Flag: `ispclub{j01n_t0_run_th1s_w0rLd}`  
+Flag có form `ispclub{this_is_flag}`. Vậy chắc chắn những ký tự đầu `h|phk}Y{` sau khi decode sẽ phải là `ispclub{`.  Phân tích quy luật của nó:  
   
+| Plaintext | Ciphertext |
+| ------ | ------ |
+| `i` - `105d` | `h` - `104d` |
+| `s` - `115d` | `\|` - `124d` |
+| `p` - `112d` | `p` - `112d` |
+| `c` - `99d` | `h` - `104d` |
+| `l` - `108d` | `k` - `107d` |
+| `u` - `117d` | `}` - `125d` |
+| `b` - `98d` | `Y` - `89d` |
+| `{` - `123d` | `{` - `123d` |  
   
+Vậy là có liên quan tới con số `19051890` thật. Cụ thể:  
+`i` - `1` = `h`  
+`s` + `9` = `|`  
+...  
+  Vậy là các ký tự sẽ được shift theo quy luật dãy số `19051890`, xen kẽ `-` và `+`.  
+Tiếp tục decode:  
   
-# Web 150: Menhera
-#### Challenge
-Chick Chick rất thích xem Menhera, trong một lần đang xem Mehera thì bỗng nhiên bị mất mạng.  
-[Web](https://minictf-web02.herokuapp.com/)  
-[Source](/miniCTF2020/writeupfiles/Menhera.zip).  
+```python
+shiftkey = '19051890'
+for i in range(0, len(text)):
+    if i % 2 == 0:
+        plain += chr(ord(text[i]) + int(shiftkey[i % 8]))
+    else:
+        plain += chr(ord(text[i]) - int(shiftkey[i % 8]))
+```  
   
-#### Solution
-Click vào đường link sẽ dẫn ta đến 1 web chal, web này yêu cầu chúng ta tắt bật mạng 10 lần để ra flag. Thật may người ra đề là 1 người biết nghĩ cho thí sinh khi chỉ cần bật tắt 10 lần. Nhưng không, đó là 1 cách làm thật sự rất thiếu tinh tế, vậy nên mình đã quyết định check source code của trang web này và phát hiện ra 1 file *script.js* có đoạn code rất khả nghi:  
+[source](https://github.com/pearldarkk/CTF/blob/main/Writeups/writeupfiles/shiftNbases.py)
+  
+Flag:   
+```
+ispclub{Tat_ca_moi_nguoi_deu_sinh_ra_co_quyen_binh_dang._Tao_hoa_cho_ho_nhung_quyen_khong_ai_co_the_xam_pham_duoc;_trong_nhung_quyen_ay,_co_quyen_duoc_song,_quyen_tu_do_va_quyen_muu_cau_hanh_phuc._Loi_bat_hu_ay_o_trong_ban_Tuyen_ngon_Doc_lap_nam_1776_cua_nuoc_My._Suy_rong_ra,_cau_ay_co_y_nghia_la:_tat_ca_cac_dan_toc_tren_the_gioi_deu_sinh_ra_binh_dang,_dan_toc_nao_cung_co_quyen_song,_quyen_sung_suong_va_quyen_tu_do._Ban_Tuyen_ngon_Nhan_quyen_va_Dan_quyen_cua_Cach_mang_Phap_nam_1791_cung_noi:_Nguoi_ta_sinh_ra_tu_do_va_binh_dang_ve_quyen_loi;_va_phai_luon_luon_duoc_tu_do_va_binh_dang_ve_quyen_loi._Do_la_nhung_le_phai_khong_ai_choi_cai_duoc.}
+```  
+# 5. ascii64+
+
+[snyde.js](https://github.com/ispclub/generalTraining/blob/main/ctf/snyde.js)
+
+Bài này cơ bản việc chúng ta phải làm đó là decode đoạn output:
+```
+<~<AI$bA4K[9=>;<a2`Y\h;`$j79M&/LAi4]g:dmiu<bHA2G#W'BE(+5S=u&Eg:N0`XBJb!TB5;^73&X;n:es&[5t5ck.s<X]@UjCf7VHa<Dc&Y\~>
+```
+Để output ra mình sẽ kiểm tra function checkPass khi function này trả về true thì kết quả mới trả về output đúng của chương trình.
+
+Đầu vào là 2 giá trị `username` và `password` kiểu tra giá trị đúng trả về `true`
+
 ```javascript
-wordRunner(speech);
-    let title = document.querySelector('.title span').innerHTML;
-    let $$ = 10
-    let $$$ = ['==QfzMzM881XxETMl9', '1XtNzXxQ2Xfhmbh91XhV3Yf9VawQ', '2XflGM291XzY3eiVHbjB3cpBiO5B', '6wuBSZn5WZsxWYoNGIhd6uhPGI', 'nFGbmByZu95uhDrxoRHIudqu', 'hjGcgA6wsBSeiOMkEDiLsOsc0', 'BibqOcarBSadub4wa8ZuBCoDzGI01quhjGdg4Wo6GuQ']
-    let $$$$ = true
-    const onlineEvent = () => {
-        if (!$$$$) --$$
-        document.querySelector('.title span').innerHTML = `Đếm nè: ${$$}`
-        if ($$ === 0) {
-            function $$$$$() {
-                let flag = _.__($$$.join('').split('').reverse().join(''))
-                wordRunner(flag)
-            }
-            return $$$$$();
-        }
+for (let i = 0; i < user.length; i++) {
+    if ((username.charCodeAt(i) + password.charCodeAt(i) + i * 10) !== key_check.charCodeAt(i)) {
+        return false
     }
-```
-Đọc hiểu thì đúng là sau khi chúng ta tắt bật mạng 10 lần `(if ($$ === 10))` thì web sẽ in ra flag cho chúng ta, nhưng để ý phần khai báo `let $$$` có thể nhận định được đây là 1 đoạn base64 đã bị đảo sau đó cắt ra, do ở dưới chúng ta có câu lệnh khai báo flag
-`let flag = _.__($$$.join(‘’).split(‘’).reverse().join(‘’))`
-Vậy là chỉ cần ghép những cụm từ trong `$$$` sau đó đảo lại và decode từ base64 về ascii là được, mình đã viết 1 script nhỏ bằng python3 để solve đoạn này:  
-```python 
-import base64
-a = ['==QfzMzM881XxETMl9', '1XtNzXxQ2Xfhmbh91XhV3Yf9VawQ', '2XflGM291XzY3eiVHbjB3cpBiO5B', '6wuBSZn5WZsxWYoNGIhd6uhPGI', 'nFGbmByZu95uhDrxoRHIudqu', 'hjGcgA6wsBSeiOMkEDiLsOsc0', 'BibqOcarBSadub4wa8ZuBCoDzGI01quhjGdg4Wo6GuQ']
-b = ""
-for i in a:
-    b += i
-b = base64.b64decode(b[::-1]).decode('utf-8')
-print (b)
-```
-Flag: `ispclub{v3__v0i__d0i__cua__anh__d1_3m__e111__<333}`  
-  
-  
-  
-# Web 200: 2048
-#### Challenge
-2048 là một trò chơi mà H3nl0r rất yêu thích, bạn hãy phá kỉ lục của H3nl0r nhé <3  
-
-[Web](http://minictf.hypnguyen.us/2048.html)  
-[deploy](/miniCTF2020/writeupfiles/2048deploy.zip) & [source](/miniCTF2020/writeupfiles/2048source.zip)  
-  
-#### Solution
-Đúng như cái tên sau khi bấm vào link, ta được dẫn đến 1 trang 2048 và với yêu cầu phải đạt 30102020 điểm thì trang web mới xuất hiện flag.  
-Game chơi thì rất vui nhưng để đạt đến con số kia thì không thể trong vòng ít nhất là vài ngày được. Vậy nên mình đã đi check thử xem có gì hay ho hay không và mình đã tìm ra, web này lưu Score trong mục local storage và có thể được chỉnh sửa:  
-
-![LocalStorage](/miniCTF2020/writeupfiles/localstorage.png)  
-  
-Sau khi sửa bestScore thành `30102020` thì trên web đã xuất hiện flag:  
-  
-![2048flag](/miniCTF2020/writeupfiles/2048flag.png)  
-  
-Flag: `ispclub{4lw4y5_ch3ck_l0c4l_st0r4g3}`  
-  
-  
-  
-# Web 300: Scroll
-#### Challenge
-Nếu biết về ma pháp JS thì ta đã không phải cuộn sushi rồi  
-  
-[Scroll](/miniCTF2020/writeupfiles/Scroll.zip)  
-#### Solution
-Khi bấm vào link nó dẫn ta tới 1 trang web được nhúng 1 vid youtube, sau 1 hồi SCROLL thì mình đã phát hiện ra đó là ở cuối trang có dòng chữ:
-```
-Hint: cuộn xuống tiếp đi 
-```
-Nhưng hint đó không có tác dụng gì cả. Vậy nên mình đã F12 để check source code của trang và phát hiện ra 1 hint khác:  
-![Scrollhint](/miniCTF2020/writeupfiles/Scrollhint.png)  
-Đường link background của trang web có gì đó khả nghi?  
-```
-body {
-    background-image: url(image.php?w=1&h=1);
-    height: 10000px;
 }
 ```
-Thử [mở riêng](http://minictf.hypnguyen.us/image.php?w=1&h=1) nó ra và thử thay đổi giá trị w và h trở thành [thế này](http://minictf.hypnguyen.us/image.php?w=1000&h=500) và ta có được flag.  
-  
-Flag: `ispclub{sh0u1dnt_l34rn_j4v4scr1pt}`  
-  
-  
-  
-# Web 500: md5-1
-#### Challenge
-H3nl0r cho rằng mình rất giỏi về các loại mã hóa, hmm điều đó có đúng không nhỉ  
-  
-https://minictf-web05.herokuapp.com/  
+`password` là thứ mình phải tìm. Method `charCodeAt(i)` trả về mã ascii của kí tự tại vị trí `i` trong chuỗi.
+Example:
+Có chuỗi `isp` mình muốn chuyển thành các kí tự ascii.
+| character | ascii code |
+|-----------|------------|
+| i         | 105        |
+| s         | 115        |
+| p         | 112        | 
+Muốn tìm được `pass` mình sẽ reverse phép toán trên bằng cách:
+```javascript
+key_check.charCodeAt(i) - i * 10 - user.charCodeAt(i)
+```
+Kết quả trả về là mã ascii của kí tự tại vị trí `i` của biến `pass`.
+Đầu xuôi đuôi lot rồi bây giờ mình sẽ dùng hàm `String.fromCharCode(char)` để trả về character với mã ascii tương ứng
+Mình sẽ viết lại code như sau:
+```javascript
+let pass = ''
+for (let i = 0; i < user.length; i++) {
+    pass += String.fromCharCode(key_check.charCodeAt(i) - i * 10 - user.charCodeAt(i))   
+}
+console.log(pass)
+```
+Done, kết quả thu được giá trị của `pass` là `Hint: ascii85`.
+Wow, người ra đề thật là thú vị đề bài vừa là hint lại vừa là đáp án
+```javascript
+const { encode } = require('./ascii.js')
+```
+Đây chắc chắn là hàm encode base85
+Đến lúc decode, mình sử dụng https://cryptii.com/pipes/ascii85-encoding
 
-[Source](/miniCTF2020/writeupfiles/md5-1.zip)  
-  
-  
-#### Solution
-Đối với chall này tụi mình xin phép trích [Wu của bạn Vũ Hoàng Anh](https://docs.google.com/document/d/1J2Iud4we_6G4mtstl9gTcKsXdQfwV10-8A5rcEhjpw4/) - người được giải Tiềm năng mùa miniCTF 2020 :3
+![](https://i.imgur.com/KxA3KTt.png)
 
+Thu được chuỗi sau khi decode:
+```
+U2FsdGVkX1+679ljS4CKLISBf5u5PEFxVgp8vTfEpEboZ2BwOpakh4yrgkwv86HAPO8bAFoS+v1ibcqcFhpQoQ==
+```
+`CryptoJS` là một thư viện hỗ trợ rất nhiều các công cụ mã hóa cho javascipt. `AES` là một trong số các thuật toán mã hóa khối phổ biến hiện nay. Mã hóa này vừa có thể mã hóa và vừa có thể giải mã...
+Thông tin thêm: https://vi.wikipedia.org/wiki/Advanced_Encryption_Standard
+Mình sẽ decrypt chuỗi trên với `pass` tìm được ban nãy, sử dụng: https://www.browserling.com/tools/aes-decrypt
+
+![](https://i.imgur.com/yjpbNfc.png)
+
+Done :3, flag tìm được:
+```
+ispclub{hemmeligheder_afsløres_altid}
+```
+Solved Python: [snyde_solved.py](https://gist.github.com/meowier/ce7c6b08d5fb8b04159fbc20367d447a)
